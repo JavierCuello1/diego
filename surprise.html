@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Home Experience</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    overflow:hidden;
+}
+
+.hero{
+    position:relative;
+    height:100vh;
+    width:100%;
+    background:url("arena.jpg") center center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.80)
+    );
+}
+
+.content{
+    position:relative;
+    z-index:2;
+    color:white;
+    max-width:900px;
+    padding:30px;
+    animation:fadeIn 2s ease;
+}
+
+.small{
+    text-transform:uppercase;
+    letter-spacing:8px;
+    font-size:.8rem;
+    color:rgba(255,255,255,.7);
+    margin-bottom:25px;
+}
+
+.title{
+    font-size:clamp(3rem,7vw,7rem);
+    font-weight:300;
+    letter-spacing:4px;
+    margin-bottom:20px;
+    text-shadow:0 10px 30px rgba(0,0,0,.5);
+}
+
+.subtitle{
+    font-size:clamp(1.2rem,2vw,2rem);
+    letter-spacing:3px;
+    color:rgba(255,255,255,.9);
+    margin-bottom:40px;
+}
+
+.question{
+    font-size:1.2rem;
+    color:white;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 38px;
+    border-radius:999px;
+    border:none;
+    cursor:pointer;
+    font-size:1rem;
+    letter-spacing:2px;
+    transition:.3s ease;
+    text-decoration:none;
+}
+
+.yes{
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.4);
+    color:white;
+    backdrop-filter:blur(15px);
+}
+
+.yes:hover{
+    background:rgba(255,255,255,.25);
+    transform:translateY(-4px);
+}
+
+.no{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.2);
+    color:white;
+    backdrop-filter:blur(15px);
+}
+
+.no:hover{
+    background:rgba(255,255,255,.15);
+}
+
+.footer{
+    position:absolute;
+    bottom:40px;
+    left:50%;
+    transform:translateX(-50%);
+    color:rgba(255,255,255,.5);
+    letter-spacing:5px;
+    font-size:.8rem;
+    z-index:2;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+
+    <div class="content">
+
+        <div class="small">
+            Special Invitation
+        </div>
+
+        <h1 class="title">
+            THE HOME EXPERIENCE
+        </h1>
+
+        <div class="subtitle">
+            ARIANA GRANDE
+            <br>
+            LIVE FROM ATLANTA
+        </div>
+
+        <p class="question">
+            Would you like to accept this livestream invitation?
+        </p>
+
+        <div class="buttons">
+
+            <a href="error.html" class="btn yes">
+                YES 
+            </a>
+
+            <button class="btn no" id="noButton">
+                NO
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        A SPECIAL EXPERIENCE AWAITS
+    </div>
+
+</section>
+
+<script>
+
+const noButton = document.getElementById("noButton");
+
+noButton.addEventListener("mouseover", () => {
+
+    const maxX = window.innerWidth - 150;
+    const maxY = window.innerHeight - 80;
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    noButton.style.position = "fixed";
+    noButton.style.left = randomX + "px";
+    noButton.style.top = randomY + "px";
+
+});
+
+</script>
+
+</body>
+</html>
